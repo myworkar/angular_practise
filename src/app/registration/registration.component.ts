@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Constant } from '../../config/constant';
 import { Registration } from "../models/registration";
 import { HttpService } from '../services/httpService';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-registration',
@@ -15,7 +16,8 @@ export class RegistrationComponent implements OnInit {
   registration: Registration;
   registrationForm: FormGroup;
 
-  constructor(private router: Router, private formbuilder: FormBuilder, private http: HttpService) { }
+  constructor(private router: Router, private formbuilder: FormBuilder, private http: HttpService,
+    private authService: AuthService) { }
 
   ngOnInit() {
     this.setRegisterFormData();
@@ -51,6 +53,7 @@ export class RegistrationComponent implements OnInit {
     let params = this.registrationForm.value;
     this.http.post(Constant.server_url + Constant.apis.register, params).subscribe((data) => {
       console.log("Register response --/ ", data);
+      this.authService.setSession(data);
       this.router.navigate(["admin"]);
     }, (error) => {
       console.log("Register response error --/ ", error);
