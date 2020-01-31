@@ -7,5 +7,6 @@ export class Constant {
     public static server_url = "http://localhost:5000";
     public static apis = {
         register: "/register"
-    };
+    };   
 }
+

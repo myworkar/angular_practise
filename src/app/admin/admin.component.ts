@@ -16,8 +16,5 @@ export class AdminComponent implements OnInit {
   logout() {
     console.log("logout");
   }
-  userRouting() {
-    console.log("user routing 5");
-//    this.router.navigate(["/admin/user"]);
-  }
+  
 }
