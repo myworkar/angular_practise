@@ -16,8 +16,8 @@ export class AuthService {
   }
 
   setSession(data) {
-    if (data && data.emailId && data.password) {
-      localStorage.setItem('userName', data.emailId);
+    if (data && data.email && data.password) {
+      localStorage.setItem('userName', data.email);
       localStorage.setItem('token', data.password);
     }
   }
