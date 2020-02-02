@@ -1,6 +1,7 @@
 export class Registration {
     name: String;
-    emailId: String;
+    email: String;
     password: String;
     phone: Number;
+    role: Number = 5;
 }

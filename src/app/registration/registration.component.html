@@ -1,8 +1,10 @@
-
-<form [formGroup]="registrationForm" (ngSubmit)="registrationSubmit();">
-    Name <input type="text" formControlName="name" /><br> <br>
-    Email <input type="email" formControlName="emailId" /><br><br>
-    PH. NO <input type="text" formControlName="phone" /><br><br>
-    Password <input type="password" formControlName="password" /><br><br>
-    <input type="submit" value="submit" />
-</form>
+<div>
+    <h3>Create an account</h3> <br>
+    <form [formGroup]="registrationForm" (ngSubmit)="registrationSubmit();">
+        Name <input type="text" formControlName="name" /><br> <br>
+        Email <input type="email" formControlName="email" /><br><br>
+        PH. NO <input type="text" formControlName="phone" /><br><br>
+        Password <input type="password" formControlName="password" /><br><br>
+        <input type="submit" value="submit" />
+    </form>
+</div>

@@ -27,9 +27,10 @@ export class RegistrationComponent implements OnInit {
     this.registration = new Registration();
     this.registrationForm = this.formbuilder.group({
       name: [this.registration.name, [Validators.required, Validators.pattern(Constant.alphabet_space)]],
-      emailId: [this.registration.emailId, [Validators.required, Validators.pattern(Constant.emailId)]],
+      email: [this.registration.email, [Validators.required, Validators.pattern(Constant.email)]],
       password: [this.registration.password, [Validators.required, Validators.pattern(Constant.passwordPattern)]],
-      phone: [this.registration.phone, [Validators.required, Validators.pattern(Constant.phone)]]
+      phone: [this.registration.phone, [Validators.required, Validators.pattern(Constant.phone)]],
+      role: this.registration.role
     })
   }
 
@@ -37,8 +38,8 @@ export class RegistrationComponent implements OnInit {
     return this.registrationForm.get("name");
   }
 
-  get emailId() {
-    return this.registrationForm.get("emailId");
+  get email() {
+    return this.registrationForm.get("email");
   }
 
   get password() {
@@ -51,7 +52,7 @@ export class RegistrationComponent implements OnInit {
 
   registrationSubmit() {
     let params = this.registrationForm.value;
-    this.http.post(Constant.server_url + Constant.apis.register, params).subscribe((data) => {
+    this.http.post(Constant.server_url + Constant.api.register, params).subscribe((data) => {
       console.log("Register response --/ ", data);
       this.authService.setSession(data);
       this.router.navigate(["admin"]);
