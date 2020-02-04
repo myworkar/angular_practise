@@ -14,12 +14,17 @@ import { AuthService } from '../services/auth.service';
 export class RegistrationComponent implements OnInit {
 
   registration: Registration;
-  registrationForm: FormGroup;
+  registrationForm: FormGroup = null;
 
   constructor(private router: Router, private formbuilder: FormBuilder, private http: HttpService,
     private authService: AuthService) { }
 
   ngOnInit() {
+    if (this.authService.checkLogin()) {
+      console.log("check login from login com init");
+      this.router.navigate(['/admin']);
+      return;
+    }
     this.setRegisterFormData();
   }
 

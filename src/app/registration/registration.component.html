@@ -1,5 +1,7 @@
 <div>
-    <h3>Create an account</h3> <br>
+    <h3>Create an account / <br>
+        <p><a routerLink="/login">Login</a></p>
+    </h3>
     <form [formGroup]="registrationForm" (ngSubmit)="registrationSubmit();">
         Name <input type="text" formControlName="name" /><br> <br>
         Email <input type="email" formControlName="email" /><br><br>
