@@ -2,10 +2,13 @@
     <a routerLink="/admin/user">
         <span>Dashboard</span>
     </a>
-    <div (click) = "logout();">
-        <span>Logout</span>
-    </div>
-    <div (click) = "logout();">
+    <br>
+    <a routerLink="/admin/edit/user">
+        <span>Edit User</span>
+    </a>
+
+
+    <div (click)="logout();">
         <span>Logout</span>
     </div>
     <router-outlet></router-outlet>

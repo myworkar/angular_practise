@@ -1,9 +1,11 @@
-<h3>Login</h3> <br>
+<div *ngIf="!showLoadingIcon">
+    <h3>Login</h3>
 
-<form [formGroup]="loginForm" (ngSubmit)="loginSubmit();">
-    Email <input type="email" formControlName="email" /><br><br>
-    Password <input type="password" formControlName="password" /><br><br>
-    <input type="submit" value="submit" />&nbsp;&nbsp;<p><a routerLink="/register">create account</a></p>
-    &nbsp;&nbsp;
-    <p *ngIf="error.status">{{error.message}}</p>
-</form>
+    <form [formGroup]="loginForm" (ngSubmit)="loginSubmit();">
+        Email <input type="email" formControlName="email" /><br><br>
+        Password <input type="password" formControlName="password" /><br><br>
+        <input type="submit" value="submit" />&nbsp;&nbsp;<p><a routerLink="/register">create account</a></p>
+        &nbsp;&nbsp;
+        <p *ngIf="error.status">{{error.message}}</p>
+    </form>
+</div>

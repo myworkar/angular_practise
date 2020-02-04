@@ -17,11 +17,17 @@ export class LoginComponent implements OnInit {
   showForgotPassword: boolean = false;
   loginForm: FormGroup;
   login: Login;
+  showLoadingIcon: boolean = true;
 
-  constructor(private router: Router, private formbuilder: FormBuilder, private http: HttpService, 
-    private error: Error, private auth_service: AuthService) { }
+  constructor(private router: Router, private formbuilder: FormBuilder, private http: HttpService,
+    private error: Error, private authService: AuthService) { }
 
   ngOnInit() {
+    if (this.authService.checkLogin()) {
+      console.log("check login from login com init");
+      this.router.navigate(['/admin']);
+      return;
+    }
     this.setLoginFormData();
   }
 
@@ -39,13 +45,14 @@ export class LoginComponent implements OnInit {
       email: [this.login.email, [Validators.required]],
       password: [this.login.password, [Validators.required]]
     })
+    this.showLoadingIcon = false;
   }
 
   loginSubmit() {
     console.log("login submit");
     this.http.post(Constant.server_url + Constant.api.login, this.loginForm.value).subscribe(data => {
       console.log("data --> ", data);
-      this.auth_service.setSession(data);
+      this.authService.setSession(data);
       this.router.navigate(["admin"]);
     }, error => {
       this.error.status = true;

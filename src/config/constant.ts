@@ -7,6 +7,7 @@ export class Constant {
     public static server_url = "http://localhost:5000";
     public static api = {
         register: "/register",
-        login: "/login"
+        login: "/login",
+        users: "/users"
     };
 }
