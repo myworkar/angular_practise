@@ -1,1 +1,17 @@
 <h1>Edit User component</h1>
+
+<form novalidate="">
+    <div class="hg_40px">
+        <span class="add_40px">+</span>
+        <span class="select_file">
+            <input accept="image/gif,image/jpeg,image/png,image/jpg" type="file" name="selectfile" class="cnt_eft"
+                (change)="selfImageFiles($event)" multiple /></span>
+
+        <div *ngFor="let url of imagePath;let i =index;">
+            <img [src]="url" alt="image" width="100" height="100">
+        </div>
+    </div>
+
+</form>
+<br><br><br><br><br><br>
+<div (click)="submitUpdateDetails()">submit</div>
