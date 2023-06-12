@@ -6,6 +6,7 @@ import { HttpService } from '../services/httpService';
 import { Constant } from '../../config/constant';
 import { Error } from '../../config/error';
 import { AuthService } from '../services/auth.service';
+import * as CryptoJS from 'crypto-js';
 
 @Component({
   selector: 'app-login',
@@ -18,11 +19,13 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   login: Login;
   showLoadingIcon: boolean = true;
+  encryptSecretKey = 'BAD';
 
   constructor(private router: Router, private formbuilder: FormBuilder, private http: HttpService,
     private error: Error, private authService: AuthService) { }
 
   ngOnInit() {
+    console.log("login in init");
     if (this.authService.checkLogin()) {
       console.log("check login from login com init");
       this.router.navigate(['/admin']);
@@ -48,10 +51,19 @@ export class LoginComponent implements OnInit {
     this.showLoadingIcon = false;
   }
 
+  encryptData(data) {
+    try {
+      return CryptoJS.AES.encrypt(JSON.stringify(data), this.encryptSecretKey).toString();
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
   loginSubmit() {
-    console.log("login submit");
-    this.http.post(Constant.server_url + Constant.api.login, this.loginForm.value).subscribe(data => {
-      console.log("data --> ", data);
+   
+    const encryptedString = this.encryptData(this.loginForm.value);
+   
+    this.http.post(Constant.server_url + Constant.api.login, {payload: encryptedString}).subscribe(data => {
       this.authService.setSession(data);
       this.router.navigate(["admin"]);
     }, error => {

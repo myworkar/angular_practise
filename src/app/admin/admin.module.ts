@@ -7,12 +7,14 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin.component';
 import { UserComponent } from './user/user.component';
 import { EditUserComponent } from './user/edit-user/edit-user.component';
+import { MpeComponent } from './mpe/mpe.component';
 
 @NgModule({
   declarations: [
     UserComponent,
     AdminComponent,
-    EditUserComponent
+    EditUserComponent,
+    MpeComponent
   ],
   imports: [
     CommonModule,

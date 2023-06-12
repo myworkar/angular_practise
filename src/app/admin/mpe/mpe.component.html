@@ -1,0 +1,21 @@
+<div class="ds1">
+    <h5 class="header">My Project</h5>
+    <p class="sbtle"><b>Date :</b> 25/2/2020 <b>| Id : </b> 5612 <b>| Type : </b>Engineer</p>
+</div>
+
+<div class="slctnType">
+    <input type="radio" name="slctnType" value="product" (change)="setDisplayFormat('product')" checked /> &nbsp;Product
+    &nbsp;&nbsp;
+    <input type="radio" name="slctnType" value="product" (change)="setDisplayFormat('Planid')" />
+    &nbsp;IDS
+</div>
+
+<div class="square">
+    <ul class="nav navbar-nav side-nav" *ngFor="let project of simpleItems; let i = index">
+        <li routerLinkActive="active" class="nav-item" style="color:rgb(15, 8, 8)">
+            <i class="fa fa-circle" style="font-size:10px; padding-bottom: 10px"></i>
+            &nbsp; <a (click)="activeProject(i)" style="color:rgb(17, 14, 14)"
+                [ngStyle]="{'fontWeight': activeProjectIndex === i ? 'bold' : 'normal' }">{{project}}</a>
+        </li>
+    </ul>
+</div>

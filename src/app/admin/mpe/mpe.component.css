@@ -1,0 +1,45 @@
+.header {
+    text-align: center;
+    color: rgb(57, 136, 206);
+    font-size: 30px;
+    padding: 10px;
+    font-family: inherit;
+}
+
+.sbtle {
+    text-align: center;
+    font-size: larger;
+    color: black;
+    padding: 10px;
+}
+
+.slctnType {
+    display: flex;
+    justify-content: center;
+}
+
+.ds1 {}
+
+.square {
+    height: 120px;
+    width: 150px;
+    overflow-y: auto;
+    border: 1px solid black ;
+    padding: 10px;
+    margin: 5px;
+    margin-top: 60px;
+    margin-left: 60px;
+    cursor: pointer;
+}
+
+/* .nav .navbar-nav .side-nav */
+
+ul .side-nav {
+    list-style-type: circle !important;
+    /* list-style-type: none !important; */
+}
+
+li p {}
+
+
+

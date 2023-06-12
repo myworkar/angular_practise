@@ -1,15 +1,32 @@
-<div>
-    <a routerLink="/admin/user">
-        <span>Dashboard</span>
-    </a>
-    <br>
-    <a routerLink="/admin/edit/user">
-        <span>Edit User</span>
-    </a>
+<ul>
+    <li>
+        <a routerLink="/admin/user">Dashboard
+            <!-- <span>Dashboard</span> -->
+        </a>
+    </li>
 
+    &nbsp;&nbsp;&nbsp;
 
-    <div (click)="logout();">
-        <span>Logout</span>
-    </div>
-    <router-outlet></router-outlet>
-</div>
+    <li>
+        <a routerLink="/admin/edit/user">Edit User
+            <!-- <span>Edit User</span> -->
+        </a>
+    </li>
+    &nbsp;&nbsp;&nbsp;
+
+    <li>
+        <a routerLink="/admin/mpe">MPE
+            <!-- <span>Logout</span> -->
+        </a>
+    </li>
+
+    
+    <li>
+        <a (click)="logout();">Logout
+            <!-- <span>Logout</span> -->
+        </a>
+    </li>
+
+</ul>
+
+<router-outlet></router-outlet>

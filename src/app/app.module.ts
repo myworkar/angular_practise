@@ -3,10 +3,17 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
-import { AppRoutingModule } from './app-routing.module';
+import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Ng2TelInputModule } from 'ng2-tel-input';
+
+
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
+
+import { AppRoutingModule } from './app-routing.module';
 import { AdminModule } from './admin/admin.module';
 import { JwtInterceptor } from './services/jwt-interceptor';
 
@@ -17,6 +24,10 @@ import { JwtInterceptor } from './services/jwt-interceptor';
     RegistrationComponent
   ],
   imports: [
+    BrowserAnimationsModule,
+    BsDropdownModule,
+    NgxIntlTelInputModule,
+    Ng2TelInputModule,
     BrowserModule,
     AdminModule,
     AppRoutingModule,
